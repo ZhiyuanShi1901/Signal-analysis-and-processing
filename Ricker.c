@@ -1,9 +1,9 @@
 #include<stdio.h>
 #include<math.h>
 
-# define dt 0.001
+# define dt 0.0001
 # define NP 2001
-# define tmin -1.0   //设置最小时间
+# define tmin -0.1   //设置最小时间
 # define fm 30
 # define PI 2*asin(1.0)
 
