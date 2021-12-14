@@ -1,16 +1,16 @@
 #include <stdio.h>
 #include<math.h>
-# define dt 0.0001
-# define NP 2001
+# define dt 0.001
+//# define NP 2001
 # define tmin -0.1   //设置最小时间
 # define fm 30
 # define PI 2*asin(1.0)
-#define N 2000
+#define N 200
 void dft(xreal, ximag);
 void Ricker(float R[N],float t[N]);
 int main()
 {
-    float t[2000], R[2000];
+    float t[N], R[N];
     float xreal[N], ximag[N];
     Ricker(R, t);
     printf("雷克子波测试输出");  //测试无误
@@ -26,7 +26,7 @@ int main()
 
     for(int i=0; i<N; i++)
     {
-         fprintf(DFT, "%10.6f\t %d\n", sqrt(pow(xreal[i],2)+pow(ximag[i], 2)), i);
+         fprintf(DFT, "%10.6f\t %10.6f\n", sqrt(pow(xreal[i],2)+pow(ximag[i], 2)), i/dt/N);
     }
     fclose(DFT);
 
@@ -61,7 +61,7 @@ float xreal[N],ximag[N];
 
 void Ricker(float R[N],float t[N])
 {
-     for(int i=0; i<NP; i++)
+     for(int i=0; i<N; i++)
     {
         float time;
         time = tmin + i*dt;
